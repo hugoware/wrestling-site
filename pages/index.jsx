@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
+import Layout from "./layout";
+import teamPicUrl from './teampic.png';
 
+console.log(teamPicUrl);
 export default function HomePage() {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -16,5 +19,19 @@ export default function HomePage() {
     )
   });
 
-  return <div className="font-bold text-3xl text-gray-500">Hello 22</div>;
+  return ( 
+    <>
+  
+    <Layout>
+      <div>
+        <h1>Hello! Welcome to girls coppell wrestling page</h1>
+        <img class="h-auto max-w-full" src={teamPicUrl.src} alt="coppell girls team pic"/>
+        <p>The girls team is super good and swaggy</p>
+      </div>
+    </Layout>
+    </>
+
+  )
+
 }
+
