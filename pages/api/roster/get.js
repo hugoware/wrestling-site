@@ -19,7 +19,8 @@ export default async function handler(req, res) {
     res.json({ success: true, roster })
   })
   .catch(err => {
-    res.json({ success: false })
+    res.json({ success: false , roster: []})
+
   });
 
 }

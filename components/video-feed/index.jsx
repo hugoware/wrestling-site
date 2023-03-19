@@ -31,11 +31,12 @@ export default function VideoFeed() {
 
   // since the feed loaded, show the result
   return videos?.map?.(video => (
-    <div>
+    <div className="rounded-lg bg-red-700 text-white p-3 m-2">
       <a href={video.mediaUrl}>
         <h3 className='text-xl' >{video.title}</h3>
-        <p>{video.timeSpan}</p>
+        
         <img src={video.thumbnailUrl} />
+        <p>{video.timeSpan}</p>
       </a>
     </div>
   ))
