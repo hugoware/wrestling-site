@@ -1,9 +1,10 @@
 import scrapeIt from 'scrape-it';
 
-const RECORDS = [
+// holds the records in memory so the request for
+// the roster data doesn't have to happen each request
+const RECORDS = [];
 
-];
-
+// returns a list of all players
 export default async function handler(req, res) {
   if (RECORDS.length) {
     return res.json({ success: true, roster: RECORDS });
@@ -17,7 +18,6 @@ export default async function handler(req, res) {
 
   // gather all grades levels
   try {
-
     const records = await Promise.all(sources.map(source => extractRoster(source.id)));
     for (const collection of records) {
       RECORDS.push(...collection);
@@ -29,9 +29,10 @@ export default async function handler(req, res) {
 
   // give back the result
   res.json({ success: true, roster: RECORDS });
-  
 }
 
+
+// gathers all available IDs for each grade level of rosters
 async function gatherSources() {
   return new Promise((resolve, reject) => {
     scrapeIt('https://www.coppellathletics.net/sport/wrestling/girls/?tab=roster', {
@@ -50,6 +51,8 @@ async function gatherSources() {
   })
 }
 
+
+// grabs a complete roster using the correct source ID
 async function extractRoster(id) {
   return new Promise((resolve, reject) => {
     scrapeIt(`https://www.coppellathletics.net/sport/RefreshRosterAthleteStyle2ViewComponent/${id}?schoolYear=2022-2023`, {
@@ -65,10 +68,7 @@ async function extractRoster(id) {
         }
       }
     })
-    .then(({ data: { roster } }) => {
-      resolve(roster)
-    })
+    .then(({ data: { roster } }) => resolve(roster))
     .catch(reject);
-
   });
 }
