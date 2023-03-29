@@ -11,11 +11,19 @@ export default function WrestlerPage (...props){
 
     <Layout>
 
-      <img className="w-[100%] col-span-2" src={router.query.pictureUrl}/>
-      <h1>{router.query.name}</h1>
-      <h2>{router.query.grade}</h2>
-      <p>Weight class - {router.query.weightClass}</p>
 
+      <div className="w-[25%] rounded-lg bg-red-700 text-white p-3">
+
+
+      <h1>{router.query.name}</h1>
+      <img className="w-[100%] col-span-2" src={router.query.pictureUrl}/>
+      
+  
+
+     
+    </div>
+    
+    
     </Layout>
   )
 }
