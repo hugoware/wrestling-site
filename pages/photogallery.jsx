@@ -4,8 +4,6 @@ import Layout from "./layout";
 import getPhotoAlbums from '../services/photoAlbum';
 
 export default function HomePage({ albums }) {
-  console.log('has', albums)
-  
   return ( 
     <Layout>
       <div className="flex flex-col gap-2 grid grid-cols-2 md:grid-cols-4">
@@ -16,7 +14,8 @@ export default function HomePage({ albums }) {
 }
 
 export async function getServerSideProps() {
-  const albums = await getPhotoAlbums()
+  const albums = await getPhotoAlbums();
+  
   return {
     props: { albums }
   };
