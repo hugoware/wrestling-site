@@ -76,7 +76,7 @@ async function extractGradeLevelRoster(id) {
     })
     .then(({ data: { roster } }) => {
       for (const wrestler of roster) {
-        wrestler.id = hashCode(wrestler.name);
+        wrestler.id = hashCode(wrestler.name?.toLowerCase());
 
       }
       
