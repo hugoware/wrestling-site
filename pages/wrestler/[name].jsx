@@ -1,8 +1,9 @@
 import { useRouter } from "next/router";
+import { getWrestlerById } from '../../services/roster';
 import Layout from "../layout";
 
 
-export default function WrestlerPage (...props){
+export default function WrestlerPage ({ wrestler }){
 
   const router = useRouter();
   
@@ -11,11 +12,26 @@ export default function WrestlerPage (...props){
 
     <Layout>
 
-      <img className="w-[100%] col-span-2" src={router.query.pictureUrl}/>
-      <h1>{router.query.name}</h1>
-      <h2>{router.query.grade}</h2>
-      <p>Weight class - {router.query.weightClass}</p>
+      <img className="w-[300px] col-span-2" src={wrestler.pictureUrl}/>
+
+      <div>
+        <h1>{wrestler.name}</h1>
+        <h2>{wrestler.grade}</h2>
+        <p>Weight class - {wrestler.weightClass}</p>
+      </div>
 
     </Layout>
   )
+}
+
+export async function getServerSideProps({ params }) {
+
+  const { name: id } = params;
+  const wrestler = await getWrestlerById(id);
+  
+  return {
+    props: {
+      wrestler
+    }
+  }
 }

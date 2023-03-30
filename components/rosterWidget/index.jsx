@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export default function RosterWidget({ name, grade, pictureUrl, weightClass }){
+export default function RosterWidget({ name, grade, pictureUrl, weightClass, id }){
 
   
   return (
@@ -17,7 +17,7 @@ export default function RosterWidget({ name, grade, pictureUrl, weightClass }){
       <p>Weight class - {weightClass}</p>
       </div>
 
-      <Link className="bg-slate-500 hover:bg-red-900 text-white font-bold py-2 px-4 w-full rounded float-right " href={`/wrestler/${name}`}>Match Videos</Link> 
+      <Link className="bg-slate-500 hover:bg-red-900 text-white font-bold py-2 px-4 w-full rounded float-right " href={`/wrestler/${id}`}>Match Videos</Link> 
     </div>
     
     </>
