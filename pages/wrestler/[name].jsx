@@ -19,7 +19,7 @@ export default function WrestlerPage ({ wrestler }){
         <h2>{wrestler.grade}</h2>
         <p>Weight class - {wrestler.weightClass}</p>
       </div>
-
+    
     </Layout>
   )
 }
