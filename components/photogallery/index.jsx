@@ -7,7 +7,7 @@ export default function PhotoAlbum({ album }){
       <a href={album.url}>
         {/* <h3 className='text-xl' >{albumTitle}</h3> */}
         
-        <img src={`https://cors-anywhere.herokuapp.com/${album.preview}`} crossorigin="anonymous" />
+        <img src={`/api/cors?url=${album.preview}`} crossorigin="anonymous" />
         {album.title}<br />
         {album.count} photos
         {/* <p>{amountOfImages} images</p> */}
