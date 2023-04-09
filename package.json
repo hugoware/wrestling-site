@@ -13,6 +13,6 @@
   },
   "scripts": {
     "dev": "next dev",
-    "start": "next start -p $PORT"
+    "start": "next build && next start -p $PORT"
   }
 }
