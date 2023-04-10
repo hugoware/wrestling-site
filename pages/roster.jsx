@@ -23,7 +23,7 @@ export default function RosterPage() {
     
     <Layout>
 
-      <div className="flex flex-col gap-2 grid grid-cols-2 md:grid-cols-4">
+      <div className="flex flex-col gap-2 gap-2 grid grid-cols-2 md:grid-cols-4">
         {roster.map(girl => <RosterWidget {...girl} ></RosterWidget>)}
       </div>
 
