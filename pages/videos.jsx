@@ -8,7 +8,7 @@ export default function HomePage() {
   return ( 
     <>
   
-    <Layout>
+    <Layout isableTopMargin={true}>
       <div className="grid grid-cols-2 md:grid-cols-4">
       <VideoFeed />
       </div>

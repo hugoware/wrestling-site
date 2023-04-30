@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Transition } from "@headlessui/react";
 export default function Layout(props) {
 
-  const topMargin = props.disableTopMargin ? "mt-0" : "mt-24";
+  const topMargin = props.disableTopMargin ? "mt-0" : "mt-10";
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div>
